@@ -4,7 +4,6 @@ Find the input noun and verb that cause the program to produce
 the output 19690720. What is 100 * noun + verb? 
 (For example, if noun=12 and verb=2, the answer would be 1202.)
 '''
-import random
 
 with open(file='day02/input.txt', mode='r') as file:
     code = file.readline().split(',')
