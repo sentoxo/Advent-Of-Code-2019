@@ -69,4 +69,4 @@ with open(file='day05/input.txt', mode='r') as file:
         if IC == 1000000:
             raise Exception('1mln instructions, too much, damage cpu or program')
 
-    print("End of program,{0} instructions were executed.1".format(IC,))
+    print("End of program,{0} instructions were executed.".format(IC,))
