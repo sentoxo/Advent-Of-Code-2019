@@ -19,7 +19,7 @@ def drawFrom1dim(tab = [], lengthOfLine = 0):
 
     for char in tab:
         if char:
-            sys.stdout.write('##')
+            sys.stdout.write('██')
         else:
             sys.stdout.write('  ')
         if i==lengthOfLine:

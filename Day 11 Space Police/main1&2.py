@@ -5,14 +5,15 @@ How many panels does it paint at least once?
 '''
 from draw import drawFrom1dim
 from computer import IntCodeComputer
+import time, os
 
 cpu = IntCodeComputer(input=())
 cpu.readCodeFromFile('Day 11 Space Police/input.txt')
 
-length = 100
+length = 45
 space = []
 space.extend([0, 0] for x in range(length**2))
-pos = [length//2, length//2]
+pos = [3, 5]
 way = 0 # 0-up 1-right ...
 c = 0
 space[ pos[0]+(pos[1]*length) ][0] = 1
@@ -47,5 +48,7 @@ while True:
     elif way == 3:
         pos[0] -= 1
 
-drawFrom1dim([x[1] for x in space], length)
+    os.system('cls')
+    drawFrom1dim([x[1] for x in space], length)
+    time.sleep(0.02)
 print(c)
