@@ -21,11 +21,9 @@ while True:
         id = cpu.run()
         if x == -1 and y == 0:
             score = id
-        
-        try:
+        else:
             buffor[y*40+x] = id
-        except IndexError:
-            pass
+
 
         if x == 39 and y == 24:
             break
