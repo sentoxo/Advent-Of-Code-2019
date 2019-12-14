@@ -10,10 +10,11 @@ import time, os
 cpu = IntCodeComputer(input=())
 cpu.readCodeFromFile('Day 11 Space Police/input.txt')
 
-length = 45
+length = 85
+height = 10
 space = []
-space.extend([0, 0] for x in range(length**2))
-pos = [3, 5]
+space.extend([0, 0] for x in range(length*height))
+pos = [1, 1]
 way = 0 # 0-up 1-right ...
 c = 0
 space[ pos[0]+(pos[1]*length) ][0] = 1
@@ -40,15 +41,15 @@ while True:
             way=3
     
     if way == 0:
-        pos[1] += 1
+        pos[1] -= 1
     elif way == 1:
         pos[0] += 1
     elif way == 2:
-        pos[1] -= 1
+        pos[1] += 1
     elif way == 3:
         pos[0] -= 1
 
     os.system('cls')
     drawFrom1dim([x[1] for x in space], length)
-    time.sleep(0.02)
+    #time.sleep(0.001)
 print(c)
