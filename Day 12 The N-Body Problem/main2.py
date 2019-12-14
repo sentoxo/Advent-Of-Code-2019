@@ -10,7 +10,7 @@ class Moon():
         self.Pos = pos
         self.Vel = [0, 0, 0]
     def __repr__(self):
-        return f'\n{Pos}\t{Vel}'
+        return f'\n{self.Pos}\t{self.Vel}'
 
 inputData = [ Moon([12, 0, -15]), Moon([-8, -5, -10]), Moon([7, -17, 1]), Moon([2, -11, -6]) ]
 testData = [ Moon([-1, 0, 2]), Moon([2, -10, -7]), Moon([4, -8, 8]), Moon([3, 5, -1]) ]
@@ -53,12 +53,10 @@ while True:
         sumOfEnergy += kin*pot
 
     i+=1
-    if sumOfEnergy == sumOfEnergy1:
-        print(i)
-        break
+    print(f'{i} {sumOfEnergy} {moons}')
 
-    if i % 10000 ==0:
-        print(i)
+    if i == 10:
+        exit(0)
 
     
 
