@@ -41,7 +41,7 @@ class IntCodeComputer():
         while self.ram:
             if self.ram[self.IP] == 99:
                 self.state = 'halt'
-                self.IP += 1
+                #self.IP += 1
                 return 0
             
             DE = self.ram[self.IP] % 100

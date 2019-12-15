@@ -10,23 +10,32 @@ buffor = list(range(40*25))
 
 score = 0
 frames = 0
+paletka = 20
 
 while True:
-    buffor = list(range(40*25))
-    while True:
+    #buffor = list(range(40*25))
+    while cpu.state != 'halt':
 
-        cpu.inputQ.put(1)
         x = cpu.run()
         y = cpu.run()
         id = cpu.run()
+        if id == 4:
+            if x > paletka:
+                cpu.inputQ.put(1)
+            elif x < paletka:
+                cpu.inputQ.put(-1)
+            else:
+                cpu.inputQ.put(0)
+        elif id == 3:
+            paletka == x
+
         if x == -1 and y == 0:
             score = id
-        else:
+        elif (39 >= x >= 0) and (24 >= y >= 0):
             buffor[y*40+x] = id
 
-
-        if x == 39 and y == 24:
-            break
+        #if x == 39 and y == 24:
+        #    break
 
 
     frames += 1
@@ -34,4 +43,4 @@ while True:
     os.system('cls')
     drawFrom1dim(buffor, 40)
     print(f'score: {score}  frames:{frames}')
-    time.sleep(0.1)
+    time.sleep(2)
